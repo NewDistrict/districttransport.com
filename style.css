@@ -9,40 +9,58 @@
 
 
 }
-
+h4{
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    font-weight: 100;
+}
 .outer{
     background-color:black;
     opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
-    position:absolute;
+    position:fixed;
     top:0;
     right:0;
     left:0;
     bottom:0;
     vertical-align: middle;
-    padding:20vh 20vw;
+    padding:15vh 10vw;
 }
 
 .main{
     background-color:rgba(0,0,0,0);
-    padding:2em;
+    padding:0em;
     line-height: 1.2em;
-    font-family: arial;
+    font-family: 'helvetica neue';
     font-size:1.5em;
     text-align: center;
-    overflow:visible;
+    overflow:scroll;
     color:white;
 }
 
-.main-form-fields *{
+.main-form-fields{
     font-size:1rem;
     text-align: left;
+    color:white;
+}
+
+form{
+    text-align: center;
+    width:80vw;
+}
+.main-form-fields{
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    width:14em;
 }
 
 input{
+    font-size:1em;
     display: block;
     margin-left:1em;
     margin-bottom:1em;
+    color:black;
+    height:1.3em;
 }
 
 .signup-button{

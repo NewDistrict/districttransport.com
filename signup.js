@@ -42,12 +42,15 @@ NDT.controller('signup', function($scope, $http){
 
 
     };
+//ng-disabled="MailchimpSubscriptionForm.$invalid"
 
-
-    $scope.sendToMailchimp = function(person,signup){
+    $scope.sendToMailchimp = function(mailchimp){
         if(formOK){
+            console.log(mailchimp);
+//            addSubscription(mailchimp);
 
-            analytics.identify(person);
+
+//            analytics.identify(person);
 /*
             var url = 'https://us3.api.mailchimp.com/2.0/lists/subscribe';
 
