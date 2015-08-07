@@ -8,40 +8,13 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
   <script type="text/javascript">
-    !function () {
-      var analytics = window.analytics = window.analytics || [];
-      if (!analytics.initialize)if (analytics.invoked)window.console && console.error && console.error("Segment snippet included twice."); else {
-        analytics.invoked = !0;
-        analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "group", "track", "ready", "alias", "page", "once", "off", "on"];
-        analytics.factory = function (t) {
-          return function () {
-            var e = Array.prototype.slice.call(arguments);
-            e.unshift(t);
-            analytics.push(e);
-            return analytics
-          }
-        };
-        for (var t = 0; t < analytics.methods.length; t++) {
-          var e = analytics.methods[t];
-          analytics[e] = analytics.factory(e)
-        }
-        analytics.load = function (t) {
-          var e = document.createElement("script");
-          e.type = "text/javascript";
-          e.async = !0;
-          e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
-          var n = document.getElementsByTagName("script")[0];
-          n.parentNode.insertBefore(e, n)
-        };
-        analytics.SNIPPET_VERSION = "3.0.1";
-        analytics.load("yhzVhcCMxH88zh1AdPAFZ9RwSb7lDUsx");
-
-
-      }
-    }();
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+      analytics.load("LZyvPqx5rJ3bDgU8BSAnbWpzzDCq9sAC");
+      analytics.page()
+    }}();
   </script>
-
 </head>
 <body>
 
@@ -53,8 +26,9 @@
 
 
     <div ng-if="signupVisible">
+
       <form name="signup"
-            action="//newdistrict.us3.list-manage.com/subscribe/post?u=a435cca37d981c2f49a8a7d20&amp;id=75368f8a48&amp;double_optin=false" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            ng-submit="sendToMailchimp(person,signup)" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate >
 
         <header class='form-header'>
           <label class='title-label' for="signup">
@@ -68,24 +42,27 @@
 
             <div >
               <label for="signup-name">Name:</label>
-              <input name="name" class="" value="" id="signup-name" ng-model="name"
+              <input name="name" class="" value="" id="signup-name" ng-model="person.name"
                      placeholder='first and last name'>
             </div>
 
             <div class="signup-field-group email">
               <label for="signup-EMAIL">Email:</label>
-              <input type="email" value="" name="EMAIL" class="required email" id="signup-EMAIL" ng-model="email"
+              <input type="email" value="" name="EMAIL" class="required email" id="EMAIL" ng-model="person.email"
                      placeholder='Email'>
             </div>
+            {{signup.EMAIL}}<br/>
+            {{person}}
+
 
             <div >
               <label for="winery-name">Winery Name:</label>
-              <input name="WINERY" class="" value="" id="winery-name" ng-model="winery"
+              <input name="WINERY" class="" value="" id="winery-name" ng-model="person.winery"
                      placeholder='winery name'>
             </div>
 
             <div class="signup-field-group submit">
-              <input type="submit" value="Subscribe" class="button" ng-click="accept(email)" ng-if="!subscribed">
+              <input type="submit" value="Subscribe" class="button" ng-click="accept(person, signup)" ng-if="!subscribed">
             </div>
 
           </div>
@@ -100,6 +77,29 @@
 
 
       </form>
+
+      <!--
+      <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl">
+        <div ng-hide="mailchimp.result === 'success'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='newdistrict'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us3'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='a435cca37d981c2f49a8a7d20'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='75368f8a48'">
+          <input type="text" name="name" ng-model="mailchimp.NAME" placeholder="First name and last name" required>
+          <input type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="Email address" required>
+          <input type="text" name="winery" ng-model="mailchimp.WINERY" placeholder="Winery Name" required>
+          <button ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)">Join</button>
+        </div>
+
+        <div ng-show="mailchimp.result === 'error'" ng-cloak>
+          <span ng-bind-html="mailchimp.errorMessage"></span>
+        </div>
+
+        <div ng-show="mailchimp.result === 'success'" ng-cloak>
+          <span ng-bind-html="mailchimp.successMessage"></span>
+        </div>
+      </form>
+      -->
     </div>
     <button class="signup-button" ng-click="signupVisible=true" ng-hide="signupVisible">signup for the newsletter</button>
 
@@ -109,19 +109,21 @@
 
 </div>
 
-<script type="text/javascript">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-sanitize.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.js">
 </script>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js">
-</script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js">
-</script>
+<script src="angular-mailchimp.js"></script>
 
 <script type="text/javascript" >
 
-  var NDT = angular.module('ndTransport',[]);
+  var NDT = angular.module('ndTransport',['mailchimp']);
 
 
 </script>

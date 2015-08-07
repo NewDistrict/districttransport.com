@@ -24,8 +24,9 @@
     padding:2em;
     line-height: 1.2em;
     font-family: arial;
-    font-size:1.5em;
+    font-size:0.5em;
     text-align: center;
+    overflow:visible;
 }
 
 .main-form-fields *{
