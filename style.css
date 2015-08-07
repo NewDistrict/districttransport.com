@@ -1,0 +1,50 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.background{
+    background-image: url("similkameen road.jpeg");
+    background-position: 0 0 ;
+    background-size: auto 100vh;
+
+
+}
+
+.outer{
+    background-color:black;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    vertical-align: middle;
+    padding:20vh 20vw;
+}
+
+.main{
+    background-color:rgba(0,0,0,0);
+    padding:2em;
+    line-height: 1.2em;
+    font-family: arial;
+    font-size:1.5em;
+    text-align: center;
+    overflow:visible;
+    color:white;
+}
+
+.main-form-fields *{
+    font-size:1rem;
+    text-align: left;
+}
+
+input{
+    display: block;
+    margin-left:1em;
+    margin-bottom:1em;
+}
+
+.signup-button{
+
+}
