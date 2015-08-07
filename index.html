@@ -50,53 +50,57 @@
   <div ng-controller="signup" class="main" ng-cloak>
     <h2>New District Transport</h2>
 
-    <form name="signup"
-          action="//newdistrict.us3.list-manage.com/subscribe/post?u=a435cca37d981c2f49a8a7d20&amp;id=75368f8a48&amp;double_optin=false" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
-      <header class='form-header'>
-        <label class='title-label' for="signup">
-          Sign up form
-        </label>
-      </header>
-    <br/>
+    <div ng-if="signupVisible">
+      <form name="signup"
+            action="//newdistrict.us3.list-manage.com/subscribe/post?u=a435cca37d981c2f49a8a7d20&amp;id=75368f8a48&amp;double_optin=false" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+        <header class='form-header'>
+          <label class='title-label' for="signup">
+            Sign up form
+          </label>
+        </header>
+      <br/>
 
 
-        <div class='main-form-fields'>
+          <div class='main-form-fields'>
 
-          <div >
-            <label for="signup-name">Name:</label>
-            <input name="name" class="" value="" id="signup-name" ng-model="name"
-                   placeholder='first and last name'>
+            <div >
+              <label for="signup-name">Name:</label>
+              <input name="name" class="" value="" id="signup-name" ng-model="name"
+                     placeholder='first and last name'>
+            </div>
+
+            <div class="signup-field-group email">
+              <label for="signup-EMAIL">Email:</label>
+              <input type="email" value="" name="EMAIL" class="required email" id="signup-EMAIL" ng-model="email"
+                     placeholder='Email'>
+            </div>
+
+            <div >
+              <label for="winery-name">Winery Name:</label>
+              <input name="WINERY" class="" value="" id="winery-name" ng-model="winery"
+                     placeholder='winery name'>
+            </div>
+
+            <div class="signup-field-group submit">
+              <input type="submit" value="Subscribe" class="button" ng-click="accept(email)" ng-if="!subscribed">
+            </div>
+
           </div>
 
-          <div class="signup-field-group email">
-            <label for="signup-EMAIL">Email:</label>
-            <input type="email" value="" name="EMAIL" class="required email" id="signup-EMAIL" ng-model="email"
-                   placeholder='Email'>
+          <div class='confirmation-container'>
+
+            <div class="clear">
+              <div ng-if="subscribed"> thanks for subscribing.</div>
+              <div class="error-message">{{message}}</div>
+            </div>
           </div>
 
-          <div >
-            <label for="winery-name">Winery Name:</label>
-            <input name="WINERY" class="" value="" id="winery-name" ng-model="winery"
-                   placeholder='winery name'>
-          </div>
 
-          <div class="signup-field-group submit">
-            <input type="submit" value="Subscribe" class="button" ng-click="accept(email)" ng-if="!subscribed">
-          </div>
-
-        </div>
-
-        <div class='confirmation-container'>
-
-          <div class="clear">
-            <div ng-if="subscribed"> thanks for subscribing.</div>
-            <div class="error-message">{{message}}</div>
-          </div>
-        </div>
-
-
-    </form>
+      </form>
+    </div>
+    <button class="signup-button" ng-click="signupVisible=true" ng-hide="signupVisible">signup for the newsletter</button>
 
 
 
