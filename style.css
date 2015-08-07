@@ -1,0 +1,36 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.background{
+
+}
+
+.outer{
+    background-color:rgba(20,20,20,0.7);
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    vertical-align: middle;
+    padding:20vh 20vw;
+}
+
+.main{
+    background-color:white;
+    padding:2em;
+    line-height: 1.2em;
+    font-family: arial;
+    font-size:1.5em;
+}
+
+.main-form-fields *{
+    font-size:1rem;
+}
+
+input{
+    display: block;
+    margin-left:1em;
+    margin-bottom:1em;
+}
