@@ -21,103 +21,67 @@
       }</script>
   </head>
 
-  <body class="background">
+  <body >
 
     <div ng-app='ndTransport' class="outer">
+      <div class='inner'>
 
-      <div ng-controller="signup" class="main" ng-cloak>
-        <img src="/img/district-transport.png" alt="District Transport" width="250">
-        <h4>the future of wine transport</h4>
+        <div class='image-container background'>
+          <div class='background-inner'>
 
-        <div ng-if="signupVisible">
+            <div class='logo-image'>
+              <img src="/img/district-transport.png" alt="District Transport" width="250">
+            </div>
 
-          <!--
-          <form name="signup"
-                ng-submit="sendToMailchimp(person,signup)" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate >
+            
+                        <div class='headline'>
+              the<br>future of<br>wine transport
+            </div>
+          </div>
+        </div>
 
-            <header class='form-header'>
-              <label class='title-label' for="signup">
-                Sign up form
-              </label>
-            </header>
-          <br/>
+        <div ng-controller="signup" class="form-container">
+          <header>
 
+            <label for="name" class='sub-headline'>
+              sign for for our newsletter<br>
+              to learn more and<br>stay in touch
+            </label>
+          </header>
+          <div  class='ng-scope mailchimp-form'>
 
+            <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl">
               <div class='main-form-fields'>
+              <div ng-hide="mailchimp.result === 'success'">
+                <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='newdistrict'">
+                <input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us3'">
+                <input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='a435cca37d981c2f49a8a7d20'">
+                <input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='75368f8a48'">
 
-                <div >
-                  <label for="signup-name">Name:</label>
-                  <input name="name" class="" value="" id="signup-name" ng-model="person.name"
-                         placeholder='first and last name'>
-                </div>
-
-                <div class="signup-field-group email">
-                  <label for="signup-EMAIL">Email:</label>
-                  <input type="email" value="" name="EMAIL" class="required email" id="EMAIL" ng-model="person.email"
-                         placeholder='Email'>
-                </div>
-                {{signup.EMAIL}}<br/>
-                {{person}}
-
-
-                <div >
-                  <label for="winery-name">Winery Name:</label>
-                  <input name="WINERY" class="" value="" id="winery-name" ng-model="person.winery"
-                         placeholder='winery name'>
-                </div>
-
-                <div class="signup-field-group submit">
-                  <input type="submit" value="Subscribe" class="button" ng-click="accept(person, signup)" ng-if="!subscribed">
-                </div>
-
+                <input type="text" name="name" id='name' ng-model="mailchimp.NAME" placeholder="your name" required>
+                <input type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="email" required>
+                <input type="text" name="winery" ng-model="mailchimp.WINERY" placeholder="winery name" required>
+                <div class='button' ng-click="MailchimpSubscriptionForm.$invalid? message = '' : addSubscription(mailchimp)">Sign up</div>
               </div>
 
-              <div class='confirmation-container'>
+              <div class='message-info' ng-show="mailchimp.result === 'error'" ng-cloak>
+                <span ng-bind-html="mailchimp.errorMessage"></span>
+              </div>
 
-                <div class="clear">
-                  <div ng-if="subscribed"> thanks for subscribing.</div>
-                  <div class="error-message">{{message}}</div>
+              <div class='message-info success'  ng-show="mailchimp.result === 'success'" ng-cloak>
+                <span ng-bind-html="mailchimp.successMessage"></span>
+              </div>
+                <div  class=" message-info error-message">{{message}}</div>
                 </div>
-              </div>
+            </form>
 
-
-          </form>
-          -->
-
-
-          <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl">
-            <div class='main-form-fields'>
-            <div ng-hide="mailchimp.result === 'success'">
-              <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='newdistrict'">
-              <input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us3'">
-              <input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='a435cca37d981c2f49a8a7d20'">
-              <input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='75368f8a48'">
-
-              <label for="name">Name:</label>
-              <input type="text" name="name" ng-model="mailchimp.NAME" placeholder="" required>
-              <label for="email">Email:</label>
-              <input type="email" name="email" ng-model="mailchimp.EMAIL" placeholder="" required>
-              <label for="winery">Winery Name:</label>
-              <input type="text" name="winery" ng-model="mailchimp.WINERY" placeholder="" required>
-              <center>
-              <button ng-click="MailchimpSubscriptionForm.$invalid? message = '' : addSubscription(mailchimp)">Sign up</button>
-              </center>
-            </div>
-
-            <div ng-show="mailchimp.result === 'error'" ng-cloak>
-              <span ng-bind-html="mailchimp.errorMessage"></span>
-            </div>
-
-            <div ng-show="mailchimp.result === 'success'" ng-cloak>
-              <span ng-bind-html="mailchimp.successMessage"></span>
-            </div>
-              <div class="error-message">{{message}}</div>
-              </div>
-          </form>
+          </div>
 
         </div>
-        <button class="signup-button" ng-click="signupVisible=true" ng-hide="signupVisible">sign up for the newsletter</button>
-      </div>
+
+
+
+     </div>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>

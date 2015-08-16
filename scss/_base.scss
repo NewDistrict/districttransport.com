@@ -49,12 +49,12 @@ body, input, textarea {
     font-size: 1em;
     line-height: 1.6;
     font-weight: 400;
-    color: white;
+    color: #333;
     -webkit-text-size-adjust: 100%;   
 }
 
 
-body, html {height: 100%;}
+body, html {}
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
