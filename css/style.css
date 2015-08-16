@@ -714,7 +714,6 @@ html {
 .sub-headline {
   font-size: .95em;
   line-height: 1.4;
-  color: #888;
   display: block; }
   @media only screen and (min-width: 500px) {
     .sub-headline {
