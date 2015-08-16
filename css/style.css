@@ -652,7 +652,7 @@ html {
     width: 8em; }
     @media only screen and (min-width: 500px) {
       .background .logo-image {
-        width: 11.5em; } }
+        width: 10.5em; } }
   .background .headline {
     -webkit-align-self: flex-start;
     -moz-align-self: flex-start;
