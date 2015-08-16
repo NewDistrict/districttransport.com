@@ -3,16 +3,17 @@
 }
 
 .background{
-    background-image: url("similkameen road.jpeg");
+    background-image: url("/img/similkameen-road.jpeg");
     background-position: 0 0 ;
     background-size: auto 100vh;
+    background-size: cover;
 
 
 }
 h4{
-    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
     font-weight: 100;
 }
+
 .outer{
     background-color:black;
     opacity: 0.8;
@@ -30,7 +31,6 @@ h4{
     background-color:rgba(0,0,0,0);
     padding:0em;
     line-height: 1.2em;
-    font-family: 'helvetica neue';
     font-size:1.5em;
     text-align: center;
     overflow:scroll;
@@ -61,8 +61,4 @@ input{
     margin-bottom:1em;
     color:black;
     height:1.3em;
-}
-
-.signup-button{
-
 }

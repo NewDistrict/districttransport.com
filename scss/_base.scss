@@ -1,0 +1,187 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  -o-hyphens: none;
+  hyphens: none;
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  /* EDIT: new syntax for FF 15+ */
+  -ms-font-feature-settings: "liga";
+  -o-font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  background: white;
+}
+
+
+/**
+ * Basic styling
+ */
+body, input, textarea {
+    font-family: $base-font-family;
+    font-size: 1em;
+    line-height: 1.6;
+    font-weight: 400;
+    color: white;
+    -webkit-text-size-adjust: 100%;   
+}
+
+
+body, html {height: 100%;}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  width: 100%;
+    vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: .9em;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: 0;
+
+}
+
+li {
+
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+    color: #FD3259;
+    text-decoration: none;
+
+    &:visited {
+        color: darken(#FD3259, 15%);
+    }
+
+    &:hover {
+        color: darken(#FD3259, 15%);
+    }
+}
+
+
+
+/** Overflow-hidden
+*/
+.overflow-hidden {
+  overflow: hidden;
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+
+
+
+/**
+ * Clearfix
+ */
+.clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

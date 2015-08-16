@@ -1,3 +1,6 @@
 .idea
-*.codekit
+.sass-cache
 .DS_Store
+.codekit-cache
+*.codekit
+*.codekit
